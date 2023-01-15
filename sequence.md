@@ -151,7 +151,7 @@ sequenceDiagram
         Endpoint-->Client: show error message
         end
     end
-    Application->>+DB: inserCouponUseageLog
+    Application->>+DB: insertCouponUseageLog
     Application->>+DB: updateCouponUseageCount
     Application->>-Endpoint: success
     Endpoint->>-Client: Success(200)
