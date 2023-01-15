@@ -41,8 +41,10 @@ sequenceDiagram
     end
     Application->>+DB: getAllCouponCodes
     DB->>-Application: List<String>
-    Application->>+Application: generateCode
-    Note right of Application: 알고리즘에 대한 고민 필요
+    loop unique code
+        Application->>+Application: generateCode
+        Application->>+Application: isDuplicated
+    end
     Application->>+Domain: instantiate
     Domain->>-Application: Coupon
     Application->>+DB: persistCoupon
